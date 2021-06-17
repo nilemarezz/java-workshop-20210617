@@ -14,6 +14,12 @@ public class Employee {
         this.lastName = lastName;
     }
 
+    public Employee(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public String getFullName() {
         return firstName + " " + lastName;
     }
