@@ -2,14 +2,19 @@ package com.nile;
 
 public class Employee {
     private int id;
-    private int firstName;
-    private int lastName;
+    private String firstName;
+    private String lastName;
 
     public Employee() {
-
+        this("", "");
     }
 
-    public String getFullName(){
-        return firstName + " " +lastName;
+    public Employee(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 }
