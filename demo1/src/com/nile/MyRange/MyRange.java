@@ -14,7 +14,7 @@ public class MyRange {
         this.firstNum = startWithInclude() ? firstNum : firstNum + 1;
         this.lastNum = endWithInclude() ? lastNum  : lastNum -1;
     }
-    
+
     public int getFirstNum() {
         return firstNum;
     }
