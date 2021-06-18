@@ -45,4 +45,78 @@ class FizzBuzzTest {
         String result = fizzBuzz.getResult(5);
         assertEquals("Buzz" , result);
     }
+
+    @Test
+    @DisplayName("Test with number = 6")
+    public void Test6(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(6);
+        assertEquals("Fizz" , result);
+    }
+
+    @Test
+    @DisplayName("Test with number = 7")
+    public void Test7(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(7);
+        assertEquals("7" , result);
+    }
+
+    @Test
+    @DisplayName("Test with number = 8")
+    public void Test8(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(8);
+        assertEquals("8" , result);
+    }
+
+    @Test
+    @DisplayName("Test with number = 9")
+    public void Test9(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(9);
+        assertEquals("Fizz" , result);
+    }
+
+    @Test
+    @DisplayName("Test with number = 10")
+    public void Test10(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(10);
+        assertEquals("Buzz" , result);
+    }
+
+    @Test
+    @DisplayName("Test with number = 11")
+    public void Test11(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(11);
+        assertEquals("11" , result);
+    }
+
+    @Test
+    @DisplayName("Test with number = 12")
+    public void Test12(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(12);
+        assertEquals("Fizz" , result);
+    }
+
+    @Test
+    @DisplayName("Test with number = 15")
+    public void Test15(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(15);
+        assertEquals("FizzBuzz" , result);
+    }
+
+    @Test
+    @DisplayName("Test with number = 30")
+    public void Test30(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(30);
+        assertEquals("FizzBuzz" , result);
+    }
+
+
 }
