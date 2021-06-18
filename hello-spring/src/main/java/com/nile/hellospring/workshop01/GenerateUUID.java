@@ -3,9 +3,9 @@ package com.nile.hellospring.workshop01;
 import java.util.Random;
 
 public class GenerateUUID {
-   private Random random ;
+   private IRandom random ;
 
-    public void setRandom(Random random) {
+    public void setRandom(IRandom random) {
         this.random = random;
     }
 
