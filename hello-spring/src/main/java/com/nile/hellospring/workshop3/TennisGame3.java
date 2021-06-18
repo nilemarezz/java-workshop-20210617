@@ -31,7 +31,7 @@ public class TennisGame3 {
             if (this.isDeuce()) {
                 return "Deuce";
             }
-            s = player1Score > player2Score ? player1Name : player2Name;
+            s = this.getPlayer();
             return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + s : "Win for " + s;
         }
     }
@@ -45,6 +45,10 @@ public class TennisGame3 {
 
     public boolean isDeuce(){
         return player1Score == player2Score;
+    }
+
+    public String getPlayer(){
+        return player1Score > player2Score ? player1Name : player2Name;
     }
 
 }
