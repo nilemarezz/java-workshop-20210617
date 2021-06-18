@@ -22,10 +22,8 @@ public class TennisGame3 {
     }
 
     public String getScore() {
-        String s;
         if (player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6)) {
-            score = point[player1Score];
-            return (player1Score == player2Score) ? score + "-All" : score + "-" + point[player2Score];
+            return this.getDraw();
         } else {
             if (this.isDeuce()) {
                 return "Deuce";
@@ -52,6 +50,11 @@ public class TennisGame3 {
     public String getAdvantageWinner(){
         this.score = this.getPlayer();
         return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + score : "Win for " + score;
+    }
+
+    public String getDraw(){
+        this.score = this.point[player1Score];
+        return (player1Score == player2Score) ? score + "-All" : score + "-" + point[player2Score];
     }
 
 }
