@@ -14,7 +14,7 @@ public class TennisGame3 {
     private String player1Name;
     private String player2Name;
     private String[] point = {"Love", "Fifteen", "Thirty", "Forty"};
-    private String score;
+    private String scoredPlayer;
 
     public TennisGame3(String player1Name, String player2Name) {
         this.player1Name = player1Name;
@@ -22,13 +22,14 @@ public class TennisGame3 {
     }
 
     public String getScore() {
-        if (player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6)) {
+        if (this.isDraw()) {
             return this.getDraw();
         } else {
             if (this.isDeuce()) {
                 return "Deuce";
+            }else {
+                return this.getWinner();
             }
-           return this.getAdvantageWinner();
         }
     }
 
@@ -47,14 +48,18 @@ public class TennisGame3 {
         return player1Score > player2Score ? player1Name : player2Name;
     }
 
-    public String getAdvantageWinner(){
-        this.score = this.getPlayer();
-        return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + score : "Win for " + score;
+    public String getWinner(){
+        this.scoredPlayer = this.getPlayer();
+        return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + scoredPlayer : "Win for " + scoredPlayer;
     }
 
     public String getDraw(){
-        this.score = this.point[player1Score];
-        return (player1Score == player2Score) ? score + "-All" : score + "-" + point[player2Score];
+        this.scoredPlayer = this.point[player1Score];
+        return (player1Score == player2Score) ? scoredPlayer + "-All" : scoredPlayer + "-" + point[player2Score];
+    }
+
+    public boolean isDraw(){
+        return player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6);
     }
 
 }
