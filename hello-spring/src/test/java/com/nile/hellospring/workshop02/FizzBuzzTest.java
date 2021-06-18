@@ -21,4 +21,12 @@ class FizzBuzzTest {
         String result = fizzBuzz.getResult(2);
         assertEquals("2" , result);
     }
+
+    @Test
+    @DisplayName("Test with number = 3")
+    public void Test3(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.getResult(3);
+        assertEquals("Fizz" , result);
+    }
 }
