@@ -25,14 +25,13 @@ public class TennisGame3 {
         String s;
         if (player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6)) {
             String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            s = p[player1Score];
-            return (player1Score == player2Score) ? s + "-All" : s + "-" + p[player2Score];
+            score = p[player1Score];
+            return (player1Score == player2Score) ? score + "-All" : score + "-" + p[player2Score];
         } else {
             if (this.isDeuce()) {
                 return "Deuce";
             }
-            s = this.getPlayer();
-            return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + s : "Win for " + s;
+           return this.getAdvantageWinner();
         }
     }
 
@@ -49,6 +48,11 @@ public class TennisGame3 {
 
     public String getPlayer(){
         return player1Score > player2Score ? player1Name : player2Name;
+    }
+
+    public String getAdvantageWinner(){
+        this.score = this.getPlayer();
+        return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + score : "Win for " + score;
     }
 
 }
