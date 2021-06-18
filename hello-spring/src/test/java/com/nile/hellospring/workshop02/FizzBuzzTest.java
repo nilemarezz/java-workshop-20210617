@@ -59,7 +59,7 @@ class FizzBuzzTest {
     public void Test7(){
         FizzBuzz fizzBuzz = new FizzBuzz();
         String result = fizzBuzz.getResult(7);
-        assertEquals("7" , result);
+        assertEquals("KBTG JAVA" , result);
     }
 
     @Test
