@@ -2,10 +2,7 @@ package com.nile.hellorest.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
 
@@ -44,8 +41,11 @@ public class EmployeeController {
         }catch (NumberFormatException e){
             System.out.println("NumberFormatException");
         }
-
-
         return new EmployeeResponse(_id , "Matas" + random.nextInt(10), "N");
+    }
+
+    @PostMapping("/employee")
+    public EmployeeResponse createNewEmployee(@RequestBody EmployeeRequest employeeRequest){
+        return new EmployeeResponse(99 , employeeRequest.getFname() , employeeRequest.getLname());
     }
 }
