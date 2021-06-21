@@ -15,17 +15,21 @@ public class EmployeeControllerTest {
 
     @Test
     public void callAPIWithPathVariable(){
+        EmployeeResponse expects = new EmployeeResponse(123 , "Matas" , "N");
         EmployeeResponse response = restTemplate.getForObject("/employee/123" , EmployeeResponse.class);
         assertEquals(123 , response.getId());
         assertEquals("Matas" , response.getFname());
-        assertEquals("N" , response.getSname());
+        assertEquals("N" , response.getLname());
+        assertEquals(expects , response);
     }
 
     @Test
     public void callAPIWithRequestParameter(){
+        EmployeeResponse expects = new EmployeeResponse(123 , "Matas" , "N");
         EmployeeResponse response = restTemplate.getForObject("/employee?id=123" , EmployeeResponse.class);
         assertEquals(123 , response.getId());
         assertEquals("Matas" , response.getFname());
-        assertEquals("N" , response.getSname());
+        assertEquals("N" , response.getLname());
+        assertEquals(expects , response);
     }
 }

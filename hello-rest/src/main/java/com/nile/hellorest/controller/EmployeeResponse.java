@@ -1,13 +1,15 @@
 package com.nile.hellorest.controller;
 
+import java.util.Objects;
+
 public class EmployeeResponse{
 	private int id;
 	private String fname;
-	private String sname;
+	private String lname;
 
-	public EmployeeResponse( int id ,String fname, String sname) {
+	public EmployeeResponse( int id ,String fname, String lname) {
 		this.fname = fname;
-		this.sname = sname;
+		this.lname = lname;
 		this.id = id;
 	}
 
@@ -27,22 +29,30 @@ public class EmployeeResponse{
 		return fname;
 	}
 
-	public void setSname(String sname){
-		this.sname = sname;
+	public void setLname(String lname){
+		this.lname = lname;
 	}
 
-	public String getSname(){
-		return sname;
+	public String getLname(){
+		return lname;
 	}
-
 
 	@Override
- 	public String toString(){
-		return 
-			"EmployeeResponse{" + 
-			"fname = '" + fname + '\'' + 
-			",sname = '" + sname + '\'' + 
-			",id = '" + id + '\'' + 
-			"}";
-		}
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		EmployeeResponse employee = (EmployeeResponse) o;
+		return id == employee.id &&
+				Objects.equals(fname, employee.fname)
+				&& Objects.equals(lname, employee.lname);
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeeResponse{" +
+				"id=" + id +
+				", fname='" + fname + '\'' +
+				", lname='" + lname + '\'' +
+				'}';
+	}
 }
