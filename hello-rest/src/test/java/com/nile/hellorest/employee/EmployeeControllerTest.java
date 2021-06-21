@@ -47,8 +47,6 @@ public class EmployeeControllerTest {
     @Test
     public void createEmployee(){
         EmployeeResponse expects = new EmployeeResponse(99 , "Matas", "N");
-
-
         EmployeeRequest requestObject = new EmployeeRequest("Matas", "N");
         HttpEntity<EmployeeRequest> request = new HttpEntity<>(requestObject);
         EmployeeResponse response = restTemplate.postForObject("/employee", request, EmployeeResponse.class);
