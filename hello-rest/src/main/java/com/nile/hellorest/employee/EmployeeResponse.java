@@ -1,4 +1,4 @@
-package com.nile.hellorest.controller;
+package com.nile.hellorest.employee;
 
 import java.util.Objects;
 
@@ -6,6 +6,7 @@ public class EmployeeResponse{
 	private int id;
 	private String fname;
 	private String lname;
+
 
 	public EmployeeResponse( int id ,String fname, String lname) {
 		this.fname = fname;
@@ -36,6 +37,7 @@ public class EmployeeResponse{
 	public String getLname(){
 		return lname;
 	}
+
 
 	@Override
 	public boolean equals(Object o) {
