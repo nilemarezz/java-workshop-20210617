@@ -7,8 +7,10 @@ public class EmployeeResponse{
 	private String fname;
 	private String lname;
 
+	public EmployeeResponse() {
+	}
 
-	public EmployeeResponse( int id ,String fname, String lname) {
+	public EmployeeResponse(int id , String fname, String lname) {
 		this.fname = fname;
 		this.lname = lname;
 		this.id = id;

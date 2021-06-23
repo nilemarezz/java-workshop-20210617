@@ -24,19 +24,14 @@ public class EmployeeController {
     @Autowired
     private MyRandom random;
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private EmployeeService employeeService;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable(name = "id") String id) {
         try {
             int _id = Integer.parseInt(id);
-            Optional<Employee> employee = employeeRepository.findById(_id);
-            if (employee.isPresent()) {
-                Employee result = employee.get();
-                EmployeeResponse response = new EmployeeResponse(result.getId(), result.getFirstName() +random.nextInt(10) , result.getLastName());
-                return response;
-            }
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            EmployeeResponse employee = employeeService.findByID(_id);
+            return employee;
         } catch (NumberFormatException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
