@@ -1,5 +1,7 @@
 package com.nile.hellorest.employee;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -20,12 +22,12 @@ class EmployeeServiceTest {
     @Mock
     private EmployeeRepository employeeRepository;
 
+
     @Test
     public void foundEmployee(){
         Employee empRes = new Employee(1 , "name" , "lastname");
-        when(random.nextInt(10)).thenReturn(7);
         when(employeeRepository.findById(1)).thenReturn(Optional.of(empRes));
-
+        when(random.nextInt(10)).thenReturn(7);
         EmployeeService service = new EmployeeService();
         service.setRandom(random);
         service.setEmployeeRepository(employeeRepository);
@@ -38,7 +40,6 @@ class EmployeeServiceTest {
     @Test
     public void notFoundEmployee(){
         EmployeeService service = new EmployeeService();
-
         service.setRandom(random);
         service.setEmployeeRepository(employeeRepository);
         EmployeeResponse response = service.findByID(100);
