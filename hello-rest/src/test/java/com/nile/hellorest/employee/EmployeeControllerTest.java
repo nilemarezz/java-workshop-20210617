@@ -20,9 +20,13 @@ public class EmployeeControllerTest {
     @MockBean
     private MyRandom random;
 
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
     @Test
-    public void callAPIWithPathVariable(){
+    public void callAPIWithPathVariableAndDatabase(){
         // Mock
+        employeeRepository.save(new Employee(123,"Matas" , "N"));
         when(random.nextInt(10)).thenReturn(7);
         EmployeeResponse expects = new EmployeeResponse(123 , "Matas7" , "N" );
         EmployeeResponse response = restTemplate.getForObject("/employee/123" , EmployeeResponse.class);

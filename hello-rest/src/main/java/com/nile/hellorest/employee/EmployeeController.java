@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 import java.util.Random;
 
 @RestController
@@ -29,13 +30,15 @@ public class EmployeeController {
     public EmployeeResponse getEmployeeByID(@PathVariable(name = "id") String id) {
         try {
             int _id = Integer.parseInt(id);
-            Employee employee = employeeRepository.getById(_id);
-            EmployeeResponse response = new EmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName());
-            return response;
+            Optional<Employee> employee = employeeRepository.findById(_id);
+            if (employee.isPresent()) {
+                Employee result = employee.get();
+                EmployeeResponse response = new EmployeeResponse(result.getId(), result.getFirstName() +random.nextInt(10) , result.getLastName());
+                return response;
+            }
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } catch (NumberFormatException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-       } catch (EntityNotFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -52,6 +55,7 @@ public class EmployeeController {
 
     @PostMapping("/employee")
     public EmployeeResponse createNewEmployee(@RequestBody EmployeeRequest employeeRequest) {
+
         return new EmployeeResponse(99, employeeRequest.getFname(), employeeRequest.getLname());
     }
 }

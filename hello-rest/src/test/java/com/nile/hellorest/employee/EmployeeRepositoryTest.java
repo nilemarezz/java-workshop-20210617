@@ -17,7 +17,7 @@ class EmployeeRepositoryTest {
     @Test
     @Order(1)
     public void foundWithID1(){
-        Employee emp1 = new Employee("demoname1" , "demolastname");
+        Employee emp1 = new Employee(1,"demoname1" , "demolastname");
         Employee save = employeeRepository.save(emp1);
         Employee employee = employeeRepository.getById(1);
         assertEquals(save.getId() , employee.getId());
@@ -28,7 +28,7 @@ class EmployeeRepositoryTest {
     @Test
     @Order(2)
     public void foundWithID2(){
-        Employee emp1 = new Employee("demoname1" , "demolastname");
+        Employee emp1 = new Employee(1,"demoname1" , "demolastname");
         Employee save = employeeRepository.save(emp1);
         Employee employee = employeeRepository.getById(save.getId());
         assertEquals(save.getId() , employee.getId());
