@@ -24,14 +24,15 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public EmployeeResponse findByID(int id){
+    public EmployeeResponse findByID(int id) throws EmployeeNotFoundException {
         Optional<Employee> employee = employeeRepository.findById(id);
         if (employee.isPresent()) {
             Employee result = employee.get();
-            EmployeeResponse response = new EmployeeResponse(result.getId(), result.getFirstName() +random.nextInt(10) , result.getLastName());
+            EmployeeResponse response = new EmployeeResponse(result.getId(), result.getFirstName() + random.nextInt(10), result.getLastName());
             return response;
         }
-        return new EmployeeResponse();
+
+        throw new EmployeeNotFoundException();
 //        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 }

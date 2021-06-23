@@ -42,9 +42,9 @@ class EmployeeServiceTest {
         EmployeeService service = new EmployeeService();
         service.setRandom(random);
         service.setEmployeeRepository(employeeRepository);
-        EmployeeResponse response = service.findByID(100);
-        assertEquals(0 , response.getId());
-        assertEquals(null , response.getFname());
-        assertEquals(null , response.getLname());
+        EmployeeNotFoundException exception = assertThrows(EmployeeNotFoundException.class , () -> service.findByID(100));
+        assertEquals("Employee not found" , exception.getMessage());
+        assertEquals(404 , exception.getStatus().value());
+
     }
 }
