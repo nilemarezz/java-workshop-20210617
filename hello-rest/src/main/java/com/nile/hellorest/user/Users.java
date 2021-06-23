@@ -1,4 +1,4 @@
-package com.nile.hellorest.userdemo;
+package com.nile.hellorest.user;
 
 import java.util.List;
 

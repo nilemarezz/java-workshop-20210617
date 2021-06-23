@@ -4,19 +4,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class UserControllerTest {
+class UserGatewayTest {
     @Autowired
-    private UserController userController;
+    private UserGateway userGateway;
 
     @Test
     public void tryToCallAPI(){
-        List<UserModel> users = userController.getAllUsers();
-        assertEquals(5 , users.size());
-        assertEquals(2 , users.get(0).getId());
+        Users users = userGateway.getAllUsers();
+        assertEquals(10 , users.getUsers().size());
     }
 }

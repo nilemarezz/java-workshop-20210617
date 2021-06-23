@@ -1,4 +1,4 @@
-package com.nile.hellorest.userdemo;
+package com.nile.hellorest.user;
 
 public class UserModel {
     private int id;
